@@ -1,65 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Homepage</title>
+    <title>杜xx的小站</title>
     <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" onclick="loadSection('home.html')">主页</a></li>
+                <li><a href="#" onclick="loadSection('projects.html')">项目</a></li>
+                <li><a href="#" onclick="loadSection('skills.html')">技能</a></li>
+                <li><a href="#" onclick="loadSection('about.html')">关于我</a></li>
+                <li><a href="#contact">联系我</a></li>
             </ul>
         </nav>
     </header>
+
+    <div id="content">
+        <!-- 动态加载的内容会插入这里 -->
+    </div>
     
-    <section id="search">
-        <h2>Search Projects</h2>
-        <input type="text" id="searchBox" placeholder="Enter project name...">
-        <button onclick="searchProject()">Search</button>
-        <div id="searchResults"></div>
-    </section>
-
-    <section id="about">
-        <h1>Hi, I'm John Doe</h1>
-        <p>Welcome to my personal homepage! I'm a passionate web developer with a love for coding and design.</p>
-    </section>
-
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Node.js</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1: Portfolio Website</h3>
-            <p>A personal portfolio website to showcase my skills and projects.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2: Task Manager App</h3>
-            <p>An app to manage tasks efficiently using Node.js and MongoDB.</p>
-        </div>
-    </section>
-
     <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: johndoe@example.com</p>
+        <h4>Contact Me</h2>
+        <p>Email: dxx9710@163.com</p>
     </section>
 
     <footer>
-        <p>© 2024 DuXiuxian. All rights reserved.</p>
+        <p>© 2024 DuXiuxian. 版权所有。</p>
     </footer>
 
     <script src="scripts.js"></script>

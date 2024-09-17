@@ -1,7 +1,36 @@
+function loadSection(section) {
+    const content = document.getElementById('content');
+    content.classList.remove('fade-in');
+    content.classList.add('fade-out');
+
+    fetch(section)
+        .then(response => response.text())
+        .then(data => {
+            setTimeout(() => {
+                content.innerHTML = data;
+                content.classList.remove('fade-out');
+                content.classList.add('fade-in');
+            }, 300); // 动画时间与 CSS 中的延迟一致
+        })
+        .catch(error => {
+            content.innerHTML = "<p>无法加载内容。</p>";
+            content.classList.remove('fade-out');
+            content.classList.add('fade-in');
+        });
+}
+
+// 默认加载主页内容
+loadSection('home.html');
+
+
+const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '/api';
+
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
-    fetch(`/api/search?query=${query}`)
+    console.log(window.location.hostname)
+    console.log(apiBaseURL)
+    fetch(`${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
         console.log(data); // 打印返回的数据

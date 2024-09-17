@@ -69,3 +69,66 @@ footer {
     padding: 1rem 0;
     margin-top: 2rem;
 }
+
+#content {
+    padding: 20px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+/* 搜索框样式 */
+#searchBox {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    border: 0.5px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.3s ease;
+    margin-left: 20x;
+}
+
+#searchBox:focus {
+    border-color: #a42270;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #b270c0;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8d1491;
+}
+
+button:active {
+    background-color: #0041a3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) inset;
+}
+
+#searchResults {
+    margin-top: 20px;
+}
+
+
+/* 动画效果 */
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
