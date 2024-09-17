@@ -1,7 +1,7 @@
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
-    fetch(`http://127.0.0.1:8000/projects?search=${query}`)
+    fetch(`/api/search?query=${query}`)
     .then(response => response.json())
     .then(data => {
         console.log(data); // 打印返回的数据
