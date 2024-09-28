@@ -23,8 +23,7 @@ function loadSection(section) {
 loadSection('home.html');
 
 
-const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '/api';
-
+const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '';
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
