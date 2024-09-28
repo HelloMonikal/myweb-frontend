@@ -23,12 +23,14 @@ function loadSection(section) {
 loadSection('home.html');
 
 
-const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '/api';
+const apiBaseURL = window.location.protocol === 'https:' 
+    ? '/api'  // 生产环境中使用相对路径
+    : 'http://127.0.0.1:8000';  // 本地开发环境
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
-    console.log(window.location.hostname)
-    console.log(apiBaseURL)
+    console.log(window.location.hostname);
+    console.log(apiBaseURL);
     fetch(`${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
@@ -48,7 +50,6 @@ function searchProject() {
         }
     })
     .catch(error => console.error("Error:", error));
-
 }
 
 document.getElementById('registerForm').addEventListener('submit', function(event) {
