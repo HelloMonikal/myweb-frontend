@@ -30,7 +30,7 @@ function searchProject() {
     const query = document.getElementById("searchBox").value;
     console.log("Hostname:", window.location.hostname);
     console.log("API Base URL:", apiBaseURL);
-    const requestUrl = `${apiBaseURL}/projects?search=${encodeURIComponent(query)}`;
+    const requestUrl = `${apiBaseURL}/projects/?search=${encodeURIComponent(query)}`;
     console.log("Request URL:", requestUrl); // 打印请求 URL
 
     fetch(requestUrl)
@@ -88,3 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Personal homepage loaded successfully!');
 });
 
+
+
+https://www.hidxx.com.cn/api/projects/?search=%E8%BD%A6%E8%BE%86
+https://www.hidxx.com.cn/api/projects?search=%E8%BD%A6%E8%BE%86
