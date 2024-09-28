@@ -32,7 +32,7 @@ function searchProject() {
     console.log(window.location.hostname);
     console.log(apiBaseURL);
     console.log(`${apiBaseURL}/projects?search=${query}`)
-    fetch(`${apiBaseURL}/projects?search=${query}`)
+    fetch(`https://${window.location.hostname}/${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
         console.log(data); // 打印返回的数据
