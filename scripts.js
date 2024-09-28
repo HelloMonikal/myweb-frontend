@@ -24,7 +24,7 @@ loadSection('home.html');
 
 
 const apiBaseURL = window.location.protocol === 'https:' 
-    ? '/api'  // 生产环境中使用相对路径
+    ? 'api'  // 生产环境中使用相对路径
     : 'http://127.0.0.1:8000';  // 本地开发环境
 
 function searchProject() {
@@ -32,7 +32,7 @@ function searchProject() {
     console.log(window.location.hostname);
     console.log(apiBaseURL);
     console.log(`${apiBaseURL}/projects?search=${query}`)
-    fetch(`https://${window.location.hostname}/${apiBaseURL}/projects?search=${query}`)
+    fetch(`${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
         console.log(data); // 打印返回的数据
@@ -49,8 +49,7 @@ function searchProject() {
         } else {
             results.innerHTML = "No projects found";
         }
-    })
-    .catch(error => console.error("Error:", error));
+    }).catch(error => console.error("Error:", error));
 };
 
 // document.getElementById('registerForm').addEventListener('submit', function(event) {
