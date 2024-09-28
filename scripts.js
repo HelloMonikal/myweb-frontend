@@ -23,13 +23,13 @@ function loadSection(section) {
 loadSection('home.html');
 
 
-const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '/';
+const apiBaseURL = window.location.hostname === '127.0.0.1' ? 'http://127.0.0.1:8000' : '/api';
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
     console.log(window.location.hostname)
     console.log(apiBaseURL)
-    fetch(`${apiBaseURL}projects?search=${query}`)
+    fetch(`${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
         console.log(data); // 打印返回的数据
