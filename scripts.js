@@ -31,6 +31,7 @@ function searchProject() {
     const query = document.getElementById("searchBox").value;
     console.log(window.location.hostname);
     console.log(apiBaseURL);
+    console.log(`${apiBaseURL}/projects?search=${query}`)
     fetch(`${apiBaseURL}/projects?search=${query}`)
     .then(response => response.json())
     .then(data => {
@@ -52,30 +53,30 @@ function searchProject() {
     .catch(error => console.error("Error:", error));
 };
 
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// document.getElementById('registerForm').addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     const username = document.getElementById('username').value;
+//     const password = document.getElementById('password').value;
 
-    fetch(`${apiBaseURL}/register`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({username: username, password: password})
-    })
-    .then(response => response.json())
-    .then(data => {
-        const registerStatus = document.getElementById('registerStatus');
-        if (data.message) {
-            registerStatus.innerHTML = `<p>${data.message}</p>`;
-        }
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        document.getElementById('registerStatus').innerHTML = '<p>Registration failed. Please try again.</p>';
-    });
-});
+//     fetch(`${apiBaseURL}/register`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({username: username, password: password})
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         const registerStatus = document.getElementById('registerStatus');
+//         if (data.message) {
+//             registerStatus.innerHTML = `<p>${data.message}</p>`;
+//         }
+//     })
+//     .catch(error => {
+//         console.error("Error:", error);
+//         document.getElementById('registerStatus').innerHTML = '<p>Registration failed. Please try again.</p>';
+//     });
+// });
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Personal homepage loaded successfully!');
