@@ -22,25 +22,31 @@ function loadSection(section) {
 // 默认加载主页内容
 loadSection('home.html');
 
-
 const apiBaseURL = window.location.protocol === 'https:' 
-    ? 'api'  // 生产环境中使用相对路径
+    ? `https://${window.location.hostname}/api` // 替换为你的生产环境域名
     : 'http://127.0.0.1:8000';  // 本地开发环境
 
 function searchProject() {
     const query = document.getElementById("searchBox").value;
-    console.log(window.location.hostname);
-    console.log(apiBaseURL);
-    console.log(`${apiBaseURL}/projects?search=${query}`)
-    fetch(`${apiBaseURL}/projects?search=${query}`)
-    .then(response => response.json())
+    console.log("Hostname:", window.location.hostname);
+    console.log("API Base URL:", apiBaseURL);
+    const requestUrl = `${apiBaseURL}/projects?search=${encodeURIComponent(query)}`;
+    console.log("Request URL:", requestUrl); // 打印请求 URL
+
+    fetch(requestUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`); // 检查响应状态
+        }
+        return response.json(); // 解析为 JSON
+    })
     .then(data => {
-        console.log(data); // 打印返回的数据
+        console.log("Response Data:", data); // 打印返回的数据
         const results = document.getElementById("searchResults");
         results.innerHTML = ""; // 清除上次的结果
         if (data.length > 0) {
             data.forEach(project => {
-                console.log(project); // 打印每个项目，检查字段
+                console.log("Project:", project); // 打印每个项目，检查字段
                 const div = document.createElement("div");
                 div.className = "project";
                 div.innerHTML = `<h3>${project.project_name}</h3><p>${project.description}</p>`;
@@ -49,7 +55,8 @@ function searchProject() {
         } else {
             results.innerHTML = "No projects found";
         }
-    }).catch(error => console.error("Error:", error));
+    })
+    .catch(error => console.error("Error:", error));
 };
 
 // document.getElementById('registerForm').addEventListener('submit', function(event) {
