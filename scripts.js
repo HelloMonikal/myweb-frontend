@@ -24,7 +24,7 @@ loadSection('home.html');
 
 
 const apiBaseURL = window.location.protocol === 'https:' 
-    ? '/api'  // 生产环境中使用相对路径
+    ? 'api'  // 生产环境中使用相对路径
     : 'http://127.0.0.1:8000';  // 本地开发环境
 
 function searchProject() {
