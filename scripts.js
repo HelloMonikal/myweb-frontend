@@ -90,5 +90,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-https://www.hidxx.com.cn/api/projects/?search=%E8%BD%A6%E8%BE%86
-https://www.hidxx.com.cn/api/projects?search=%E8%BD%A6%E8%BE%86
