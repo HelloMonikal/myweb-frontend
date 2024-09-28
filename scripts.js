@@ -50,7 +50,7 @@ function searchProject() {
         }
     })
     .catch(error => console.error("Error:", error));
-}
+};
 
 document.getElementById('registerForm').addEventListener('submit', function(event) {
     event.preventDefault();
